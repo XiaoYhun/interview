@@ -1,4 +1,3 @@
-import { ArrowUp, Settings } from "lucide-react";
 import CurrencyInput from "./CurrencyInput";
 import { Button } from "@nextui-org/react";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
@@ -82,9 +81,6 @@ export default function SwapForm() {
       <Button onPress={wrapEther}>Wrapp 100 ETH into WETH</Button>
       <div className="flex justify-between items-center px-1.5">
         <div className="text-sm font-bold px-3 py-1.5 rounded-full bg-neutral-800">Swap</div>
-        <div>
-          <Settings size={20} />
-        </div>
       </div>
       <CurrencyInput
         title="Sell"
@@ -104,9 +100,24 @@ export default function SwapForm() {
           onClick={() => {
             swapTokens();
           }}
-          className="bg-neutral-900 border-neutral-700 border-2 rounded-[8px] p-1.5 absolute left-1/2 -translate-x-1/2 -top-4 cursor-pointer hover:bg-neutral-800 hover:border-neutral-400"
+          className="bg-neutral-900 border-neutral-700 border-2 rounded-[8px] p-1.5 absolute left-1/2 -translate-x-1/2 -top-5 cursor-pointer hover:bg-neutral-800 hover:border-neutral-400 z-10"
         >
-          <ArrowUp size={16} />
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" width="24" height="24">
+            <path
+              d="M12 5V19"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+            <path
+              d="M19 12L12 19L5 12"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
         </div>
         <CurrencyInput
           title="Buy"

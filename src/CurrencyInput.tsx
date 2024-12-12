@@ -2,7 +2,6 @@ import { Button, Input, Skeleton } from "@nextui-org/react";
 import { useState } from "react";
 import SelectTokenModal from "./SelectTokenModal";
 import { Token } from "@uniswap/sdk-core";
-import { ChevronDown } from "lucide-react";
 import useTokenBalance from "./hooks/useTokenBalance";
 import { CurrentConfig } from "./config";
 import { toReadableAmount } from "./utils";
@@ -25,7 +24,6 @@ export default function CurrencyInput({
   const [isFocusing, setIsFocusing] = useState(false);
   const [isOpenSelectTokenModal, setIsOpenSelectTokenModal] = useState(false);
   const { balance: tokenInBalance } = useTokenBalance(token, CurrentConfig.wallet.address);
-  console.log("🚀 ~ tokenInBalance:", tokenInBalance);
   return (
     <div
       className={`rounded-[20px] border border-neutral-800 flex items-center p-3 py-4 transition-all relative ${
@@ -63,7 +61,6 @@ export default function CurrencyInput({
               className="rounded-full w-6 h-6"
             ></img>{" "}
             {token.symbol}
-            <ChevronDown size={20} />
           </Button>
         ) : (
           <Button

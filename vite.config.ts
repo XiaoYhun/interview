@@ -5,7 +5,7 @@ import commonjs from "@rollup/plugin-commonjs";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), commonjs()],
+  plugins: [react()],
   css: {
     postcss: {
       plugins: [tailwindcss()],
