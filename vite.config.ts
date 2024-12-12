@@ -10,4 +10,7 @@ export default defineConfig({
       plugins: [tailwindcss()],
     },
   },
+  build: {
+    commonjsOptions: { transformMixedEsModules: true },
+  },
 });
