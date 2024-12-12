@@ -3,7 +3,7 @@ import SwapForm from "./SwapForm";
 import "@rainbow-me/rainbowkit/styles.css";
 
 import { darkTheme, RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import { createConfig, http, injected, WagmiProvider } from "wagmi";
+import { createConfig, http, WagmiProvider } from "wagmi";
 import { mainnet } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 

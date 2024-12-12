@@ -12,11 +12,9 @@ import { CurrencyAmount, Percent, TradeType } from "@uniswap/sdk-core";
 import JSBI from "jsbi";
 import { CurrentConfig } from "./config";
 import { getTokenTransferApproval, sendTransaction } from "./libs";
-import { ERC20_ABI, MAX_FEE_PER_GAS, MAX_PRIORITY_FEE_PER_GAS, SWAP_ROUTER_ADDRESS } from "./constants";
-import { useEffect } from "react";
+import { MAX_FEE_PER_GAS, MAX_PRIORITY_FEE_PER_GAS, SWAP_ROUTER_ADDRESS } from "./constants";
 import { ethers } from "ethers";
 import useProvider from "./hooks/useProvider";
-import useTokenBalance from "./hooks/useTokenBalance";
 
 export default function SwapForm() {
   const { openConnectModal } = useConnectModal();
@@ -77,23 +75,6 @@ export default function SwapForm() {
 
     console.log(`Wrapped ${ethers.utils.formatEther(amountToWrap)} ETH into WETH`);
   };
-
-  useEffect(() => {
-    if (!tokenIn || !provider) return;
-    console.log("🚀 ~ useEffect ~ tokenIn:", tokenIn);
-
-    provider.getBalance(CurrentConfig.wallet.address).then((balance: any) => {
-      console.log("🚀 ~ balance: native", balance.toString());
-    });
-    if (tokenIn.isNative) {
-    } else {
-      const contract = new ethers.Contract(tokenIn?.address, ERC20_ABI, provider);
-
-      contract.balanceOf(CurrentConfig.wallet.address).then((balance: any) => {
-        console.log("🚀 ~ balance:", balance.toString());
-      });
-    }
-  }, [tokenIn, provider]);
 
   return (
     <div className="flex flex-col gap-1 w-[400px]">

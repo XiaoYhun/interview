@@ -1,5 +1,5 @@
 import { Modal, ModalBody, ModalContent, ModalHeader } from "@nextui-org/react";
-import { ChainId, Token } from "@uniswap/sdk-core";
+import { Token } from "@uniswap/sdk-core";
 import { tokenList } from "./constants";
 
 export default function SelectTokenModal({
